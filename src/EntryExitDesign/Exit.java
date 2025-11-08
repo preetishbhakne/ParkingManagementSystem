@@ -2,6 +2,8 @@ package EntryExitDesign;
 
 import VehicleDesign.Vehicle;
 
+import static EntryExitDesign.EntryExitTest.vehicleSet;
+
 public class Exit {
     public int floor;
     public int exitGate;
@@ -15,6 +17,13 @@ public class Exit {
         System.out.println("Exit Gate: " + exitGate + " on Floor: " + floor);
     }
     public void registerVehicleExit(Vehicle vehicle) {
-        System.out.println("Vehicle "+vehicle.number+" exited at Exit Gate: " + exitGate + " on Floor: " + floor);
+        if(vehicleSet.contains(vehicle.number)){
+            vehicleSet.remove(vehicle.number);
+            System.out.println("Vehicle "+vehicle.number+" exited at Exit Gate: " + exitGate + " on Floor: " + floor);
+        }
+        else {
+            System.out.println("Vehicle "+vehicle.number+" not found in the parking lot.");
+        }
+
     }
 }
