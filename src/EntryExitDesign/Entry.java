@@ -19,17 +19,17 @@ public class Entry {
 
         this.floor = floor;
         this.entryGate = entryGate;
-        System.out.println("✅ Entry #" + count + " created for Floor: " + floor + ", Gate: " + entryGate);
+        System.out.println("Entry #" + count + " created for Floor: " + floor + ", Gate: " + entryGate);
     }
 
-    // ✅ Public factory method
+
     public static Entry createEntry(int floor, int entryGate) throws MaxExitEntryLimitReachedException {
         return new Entry(floor, entryGate);
     }
 
     public static void setMaxInstances(int max) {
         if (max < count) {
-            System.out.println("⚠️ Warning: Current entry objects exceed new limit!");
+            System.out.println("Warning: Current entry objects exceed new limit!");
         }
         maxInstances = max;
     }
@@ -48,7 +48,7 @@ public class Entry {
 
     public void registerVehicleEntry(Vehicle vehicle) {
         vehicleSet.add(vehicle.number);
-        System.out.println("🚗 Vehicle: " + vehicle.number +
+        System.out.println("Vehicle: " + vehicle.number +
                 " entered at Entry Gate: " + entryGate +
                 " on Floor: " + floor);
     }

@@ -19,7 +19,7 @@ public class Exit {
 
         this.floor = floor;
         this.exitGate = exitGate;
-        System.out.println("✅ Exit #" + count + " created for Floor: " + floor + ", Gate: " + exitGate);
+        System.out.println("Exit #" + count + " created for Floor: " + floor + ", Gate: " + exitGate);
     }
 
     // ✅ Public factory method
@@ -29,7 +29,7 @@ public class Exit {
 
     public static void setMaxInstances(int max) {
         if (max < count) {
-            System.out.println("⚠️ Warning: Current exit objects exceed new limit!");
+            System.out.println("Warning: Current exit objects exceed new limit!");
         }
         maxInstances = max;
     }
@@ -51,7 +51,7 @@ public class Exit {
            throw new WrongVehicleExitException(vehicle.number);
         }
             vehicleSet.remove(vehicle.number);
-            System.out.println("🚗 Vehicle: " + vehicle.number +
+            System.out.println("Vehicle: " + vehicle.number +
                     " exited at Entry Gate: " + exitGate +
                     " on Floor: " + floor);
 
