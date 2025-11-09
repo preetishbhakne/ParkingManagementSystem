@@ -8,23 +8,23 @@ public class Entry {
     private static int maxInstances = 2;
 
     public int floor;
-    public int entryGate;
 
-    // Private constructor — controlled creation
-    private Entry(int floor, int entryGate) throws MaxExitEntryLimitReachedException {
+
+
+    private Entry(int floor) throws MaxExitEntryLimitReachedException {
         if (count >= maxInstances) {
             throw new MaxExitEntryLimitReachedException("Entry", maxInstances);
         }
         count++;
 
         this.floor = floor;
-        this.entryGate = entryGate;
-        System.out.println("Entry #" + count + " created for Floor: " + floor + ", Gate: " + entryGate);
+
+        System.out.println("Entry #" + count + " created for Floor: " + floor);
     }
 
 
-    public static Entry createEntry(int floor, int entryGate) throws MaxExitEntryLimitReachedException {
-        return new Entry(floor, entryGate);
+    public static Entry createEntry(int floor) throws MaxExitEntryLimitReachedException {
+        return new Entry(floor);
     }
 
     public static void setMaxInstances(int max) {
@@ -43,13 +43,13 @@ public class Entry {
     }
 
     public void displayEntryInfo() {
-        System.out.println("Entry Gate: " + entryGate + " on Floor: " + floor);
+        System.out.println("Entry Gate: " + count + " on Floor: " + floor);
     }
 
     public void registerVehicleEntry(Vehicle vehicle) {
         vehicleSet.add(vehicle.number);
         System.out.println("Vehicle: " + vehicle.number +
-                " entered at Entry Gate: " + entryGate +
+                " entered at Entry Gate: " + count +
                 " on Floor: " + floor);
     }
 }
